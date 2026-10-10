@@ -1,0 +1,21 @@
+# Homepage, as the Synology package runs it: the compose project in the
+# homepage shared folder. Its configuration is the config folder beside this
+# file — YAML you can open in File Station — written by the package unless you
+# take it over in the window. Homepage runs as root, so the shared folder's
+# ACLs don't keep it out.
+services:
+  server:
+    image: ${HP_IMAGE:-ghcr.io/gethomepage/homepage:latest}
+    container_name: homepage-server
+    restart: unless-stopped
+    ports:
+      - "${HTTP_PORT:-3010}:3000"
+    volumes:
+      - ./config:/app/config
+      - ./images:/app/public/images
+    environment:
+      TZ: ${TZ:-UTC}
+      # Homepage answers only for these host:port values (localhost always).
+      HOMEPAGE_ALLOWED_HOSTS: ${ALLOWED_HOSTS:-}
+      # The DSM account's password for the stats widget: services.yaml says {{HOMEPAGE_VAR_DSM_PASS}}, not the password.
+      HOMEPAGE_VAR_DSM_PASS: ${DSM_PASS:-}

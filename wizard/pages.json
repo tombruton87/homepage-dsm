@@ -1,0 +1,8 @@
+, {
+    "step_title": "Homepage",
+    "items": [{
+        "type": "textfield",
+        "desc": "The package fills the dashboard in for you — DSM, the apps from this family of packages, and your containers — and keeps it current. Give it a title; everything else is in the Homepage window in DSM.",
+        "subitems": [{ "key": "wizard_hp_title", "desc": "Title", "defaultValue": "My Synology", "validator": { "allowBlank": false, "regex": { "expr": "/^[A-Za-z0-9 ._-]{1,60}\$/", "errorText": "Letters, digits and spaces — up to 60" } } }]
+    }]
+}

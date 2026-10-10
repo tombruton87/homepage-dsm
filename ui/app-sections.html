@@ -1,0 +1,41 @@
+    <section data-page="dashboard" hidden>
+      <div class="note">What's on <a class="hp-link" href="#" target="_blank" rel="noopener">Homepage</a>. The package looks for it every 10 minutes: DSM, the apps from this family of packages, and containers with a web port — each tile shows whether it's up and how fast it answers. Hide what you don't want; add links of your own.</div>
+      <div class="tiles" id="db-tiles"></div>
+      <div class="card"><table><thead><tr><th>Tile</th><th>Group</th><th>Address</th><th class="n"></th></tr></thead><tbody id="db-items"></tbody></table>
+        <div class="in"><button class="btn" data-act="rescan">Look again now</button> <span class="muted small" id="db-when"></span></div></div>
+      <div class="card"><h2>Add a link</h2><div class="in">
+        <label class="f"><span>Name</span><input type="text" id="ln-name" placeholder="Router"></label>
+        <label class="f"><span>Address</span><input type="text" id="ln-url" placeholder="http://192.168.1.1"></label>
+        <label class="f"><span>Group</span><input type="text" id="ln-group" placeholder="Links"></label>
+        <label class="f"><span>Icon (optional)</span><input type="text" id="ln-icon" placeholder="router.png — any name from dashboard-icons, or mdi-router"></label>
+        <button class="btn primary" id="ln-add" data-app>Add</button></div></div>
+    </section>
+
+    <section data-page="look" hidden>
+      <div class="note">How Homepage looks. Reload it in the browser to see a change.</div>
+      <div class="card"><div class="in">
+        <label class="f"><span>Title</span><input type="text" id="lk-title" maxlength="60"></label>
+        <label class="f"><span>Theme</span><select id="lk-theme"><option value="dark">Dark</option><option value="light">Light</option></select></label>
+        <label class="f"><span>Colour</span><div class="swatches" id="lk-colors"></div></label>
+        <p><label><input type="checkbox" id="lk-search"> A search box (DuckDuckGo)</label></p>
+        <p><label><input type="checkbox" id="lk-clock"> The date and time</label></p>
+        <button class="btn primary" id="lk-save" data-app>Save</button></div></div>
+    </section>
+
+    <section data-page="dsmstats" hidden>
+      <div class="note">The DSM tile can show this Synology's own numbers — CPU, memory, uptime, free space — when it can sign in to DSM. Make a DSM user just for this (Control Panel → User &amp; Group), with no 2-step verification. Its password is kept in the package's settings, readable only by root, and handed to Homepage when it starts — it isn't written into the YAML.</div>
+      <div class="tiles" id="ds-tiles"></div>
+      <div class="card"><div class="in">
+        <label class="f"><span>DSM username</span><input type="text" id="ds-user" autocomplete="off"></label>
+        <label class="f"><span>Password</span><input type="password" id="ds-pass" autocomplete="new-password" placeholder="(unchanged)"></label>
+        <label class="f"><span>Volume</span><input type="text" id="ds-vol" placeholder="volume_1 — empty for all" style="max-width:220px"></label>
+        <p><button class="btn" id="ds-test" data-app>Test</button> <button class="btn primary" id="ds-save" data-app>Show the stats</button> <button class="btn" data-act="dsmoff">Stop</button></p></div></div>
+    </section>
+
+    <section data-page="byhand" hidden>
+      <div class="note">Homepage is configured by YAML files, in <b id="bh-dir">homepage/config</b> in File Station — open them with the Text Editor package. Its <a href="https://gethomepage.dev/configs/" target="_blank" rel="noopener">documentation</a> has every option and widget.</div>
+      <div class="card"><div class="in">
+        <p id="bh-state"></p>
+        <p><button class="btn primary" id="bh-on" data-app>I'll edit the YAML myself</button> <button class="btn" id="bh-off" data-app>Let the package write it again</button></p>
+        <p class="muted small">While you edit by hand, the package stops writing services.yaml, settings.yaml and widgets.yaml — new apps won't appear by themselves. Switching back replaces your edits with the package's dashboard.</p></div></div>
+    </section>

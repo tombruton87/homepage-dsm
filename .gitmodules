@@ -1,0 +1,3 @@
+[submodule "chassis"]
+	path = chassis
+	url = https://github.com/tombruton87/dsm-app-chassis.git
