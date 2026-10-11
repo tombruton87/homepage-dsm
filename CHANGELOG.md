@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.0.1 — 2026-10-11
+
+- The DSM password box on the Synology stats tab looks like the other fields
+  instead of a small browser-default box.
+
 ## 1.0.0 — 2026-10-10
 
 First release. Homepage in Container Manager, filled in by the package:
